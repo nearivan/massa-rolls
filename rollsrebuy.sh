@@ -1,4 +1,4 @@
-#/bin/bash
+/bin/bash
 
 if [ -z "$massa_pass" ];
         then
@@ -13,9 +13,10 @@ while true
 do
         balance=$(cd /root/massa/massa-client/ && /root/massa/massa-client/massa-client --pwd $massa_pass wallet_info | grep "Active rolls" | awk '{ print $3 }' && cd)
         int_balance=${balance%%.*}
+
         echo "-----"
         date
-        if [ $int_balance -gt "1" ]; then
+        if [ $int_balance -ge "1" ]; then
                 echo "Balance: $int_balance"
         elif [ $int_balance -lt "1" ]; then
                 echo "Balance: $int_balance"
