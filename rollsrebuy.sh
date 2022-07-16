@@ -1,5 +1,13 @@
 #/bin/bash
 
+if [ -z "$massa_pass" ];
+        then
+                read -p "Please set a password: "  massa_pass
+                echo 'export massa_pass='$massa_pass >> $HOME/.profile; 
+        else
+                echo "Password is set!"; 
+fi
+
 massa_wallet_address=$(cd /root/massa/massa-client/ && /root/massa/massa-client/massa-client --pwd $massa_pass wallet_info | grep "Address" | awk '{ print $2 }' && cd)
 while true
 do
