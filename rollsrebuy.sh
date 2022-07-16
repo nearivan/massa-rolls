@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source $HOME/.profile
+
 if [ -z "$massa_pass" ];
         then
                 read -p "Please set a password: "  massa_pass
